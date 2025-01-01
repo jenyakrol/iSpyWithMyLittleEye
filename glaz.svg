@@ -1,0 +1,40 @@
+<svg
+      class="eye"
+      width="490"
+      height="300"
+      viewBox="10 -150 490 300"
+      xmlns="http://www.w3.org/2000/svg"
+    ><defs>
+      <clipPath id="clip-path">
+        <!-- Верхнее веко -->
+        <path id="upper-pupil"
+          d="M 10 100 Q 10 100 500 100"
+          stroke="#8ab4f8"
+          stroke-width="3"
+          fill="none"
+        />
+        <!-- Нижнее веко -->
+        <path id="bottom-pupil"
+          d="M 10 100 Q 10 100 500 100"
+          stroke="#8ab4f8"
+          stroke-width="3"
+          fill="none"
+        />
+      </clipPath>
+    </defs>
+    <path
+          id="upper-lid"
+          d="M 10 100 Q 250 150 500 100"
+          stroke="#8ab4f8"
+          stroke-width="30"
+          fill="none"
+        />
+        <path
+          id="lower-lid"
+          d="M 10 100 Q 250 150 500 100"
+          stroke="#8ab4f8"
+          stroke-width="30"
+          fill="none"
+        />
+        <circle id="pupil" cx="250" cy="124" r="50" fill="#8ab4f8" clip-path="url(#clip-path)" />
+    

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Текст с фоном-картинкой</title>
+    <link
+      rel="stylesheet"
+      href="https://code.s3.yandex.net/web-code/fonts/fonts.css"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body class="page">
+    <div class="eye-container">
+      <div class="eye-core">
+        <div class="eye-iris-external">
+          <div class="eye-iris-internal"></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="eye-button black-eye initial-eye">
+      <svg
+        class="eye"
+        viewBox="10 -20 490 245"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="upper-lid"
+          d="M10 100 Q 250 150, 500 100"
+          stroke="currentColor"
+          stroke-width="30"
+          fill="none"
+        />
+        <path
+          class="lower-lid"
+          d="M10 100 Q 250 150, 500 100"
+          stroke="currentColor"
+          stroke-width="30"
+          fill="none"
+        />
+        <circle
+          class="pupil"
+          cx="250"
+          cy="124"
+          r="0"
+          fill="currentColor"
+          clip-path="url(#clip-path)"
+        />
+      </svg>
+    </button>
+  </body>
+
+  <template id="glaz">
+    <button class="eye-button">
+      <svg
+        class="eye"
+        viewBox="10 -20 490 245"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="upper-lid"
+          d="M10 100 Q 250 150, 500 100"
+          stroke="currentColor"
+          stroke-width="30"
+          fill="none"
+        />
+        <path
+          class="lower-lid"
+          d="M10 100 Q 250 150, 500 100"
+          stroke="currentColor"
+          stroke-width="30"
+          fill="none"
+        />
+        <circle
+          class="pupil"
+          cx="250"
+          cy="124"
+          r="0"
+          fill="currentColor"
+          clip-path="url(#clip-path)"
+        />
+      </svg>
+    </button>
+  </template>
+
+  <template id="stage2">
+    <div class="stage2-stuff">
+      <div class="eye-container-2">
+        <svg
+          class="noviy-glaz"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 200 200"
+        >
+          <defs>
+            <radialGradient
+              id="inner-shadow"
+              cx="50%"
+              cy="50%"
+              r="50%"
+              fx="50%"
+              fy="50%"
+            >
+              <stop class="shadow-gradient" offset="0%" stop-color="black" stop-opacity="0" />
+              <stop class="shadow-gradient" offset="60%" stop-color="black" stop-opacity="0.1" />
+              <stop class="shadow-gradient" offset="85%" stop-color="black" stop-opacity="0.4" />
+              <stop class="shadow-gradient" offset="100%" stop-color="black" stop-opacity="0.7" />
+            </radialGradient>
+          </defs>
+          <!-- Внешний круг глаза -->
+          <circle class="eye-core-2" cx="100" cy="100" r="90" fill="#ffffff" />
+
+          <g class="zrachok">
+            <!-- Радужка -->
+            <circle class="iris-2" cx="100" cy="100" r="50" fill="currentColor" />
+
+            <!-- Зрачок -->
+            <circle class="pupil-2" cx="100" cy="100" r="25" fill="#000000" />
+
+            <!-- Блик -->
+            <circle class="blick-2" cx="115" cy="75" r="23" fill="#ffffff" opacity="0.6" />
+          </g>
+
+          <!-- Градиентная тень -->
+          <circle cx="100" cy="100" r="90" fill="url(#inner-shadow)" />
+        </svg>
+      </div>
+      <div class="spikes">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 192 108"
+          fill="white"
+        >
+          <g class="spikes-row spikes-first-row" transform="translate(96, 54)">
+            <!-- 12 шипов -->
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(0)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(30)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(60)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(90)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(120)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(150)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(180)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(210)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(240)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(270)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(300)" />
+            <polygon points="-8,-114 8,-114 0,-48" transform="rotate(330)" />
+          </g>
+
+          <g class="spikes-row spikes-second-row" transform="translate(96, 54)">
+            <!-- 12 шипов -->
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(0)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(30)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(60)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(90)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(120)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(150)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(180)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(210)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(240)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(270)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(300)" />
+            <polygon points="-8,-122 8,-122 0,-56" transform="rotate(330)" />
+          </g>
+
+          <g class="spikes-row spikes-third-row" transform="translate(96, 54)">
+            <!-- 12 шипов -->
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(0)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(30)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(60)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(90)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(120)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(150)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(180)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(210)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(240)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(270)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(300)" />
+            <polygon points="-8,-130 8,-130 0,-64" transform="rotate(330)" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </template>
+
+  <script src="./scripts/script.js"></script>
+</html>

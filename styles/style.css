@@ -1,0 +1,602 @@
+button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+@property --iris-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgb(145 0 255);
+}
+
+body{
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  background-color: black;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page.invert {
+  background-color: white;
+}
+
+.pixelperfect {
+  position: absolute;
+  inset: 0;
+  opacity: 0%;
+  filter: invert(100%);
+  z-index: 1000;
+}
+
+.eye-container {
+  position: absolute;
+  width: 861px;
+  animation: eye-move 1.125s linear forwards;
+}
+
+.eye-core {
+  width: 861px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: -463px;
+  left: 0;
+  rotate: -4deg;
+  animation: eye-rotate 1.125s linear forwards infinite;
+}
+
+.page.invert .eye-core {
+  background-color: black;
+  animation: eye-rotate2 1.125s linear forwards infinite;
+}
+
+.eye-iris-external {
+  background-color: var(--iris-color);
+  position: absolute;
+  width: 364px;
+  aspect-ratio: 1 /1;
+  border-radius: 50%;
+  top: 422px;
+  left: 244px;
+  transform: perspective(244px) rotateX(60deg);
+  box-shadow: inset #000 0 0 30px 0;
+  animation: color-changing 0.27s linear infinite;
+}
+
+.eye-iris-internal {
+  background-color: #000;
+  position: absolute;
+  width: 157px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  top: 221px;
+  left: 103px;
+  transform: perspective(244px) rotateX(55deg);
+  box-shadow: inset var(--iris-color) 0 10px 20px 0;
+  animation: color-changing 0.27s linear infinite;
+}
+
+.page.invert .eye-iris-external {
+  animation: color-changing-2 0.15s linear infinite;
+}
+
+.page.invert .eye-iris-internal {
+  box-shadow: none;
+  background-color: #fff;
+  animation: none;
+}
+
+
+@keyframes eye-iris-internal-color-changing {
+  to {
+    background-color: #fff;
+
+    box-shadow: none;
+  }
+}
+
+@keyframes eye-rotate {
+  25% {
+    rotate: -4deg;
+  }
+  30% {
+    rotate: 15deg;
+  }
+  45% {
+    rotate: 15deg;
+  }
+  50% {
+    rotate: -10deg;
+  }
+  75% {
+    rotate: -10deg;
+  }
+  80% {
+    rotate: 4deg;
+  }
+  95% {
+    rotate: 4deg;
+  }
+  to {
+    rotate: 10deg;
+  }
+}
+
+@keyframes eye-rotate2 {
+  25% {
+    rotate: -8deg;
+  }
+  30% {
+    rotate: 30deg;
+  }
+  45% {
+    rotate: 30deg;
+  }
+  50% {
+    rotate: -20deg;
+  }
+  75% {
+    rotate: -20deg;
+  }
+  80% {
+    rotate: 8deg;
+  }
+  95% {
+    rotate: 8deg;
+  }
+  to {
+    rotate: 20deg;
+  }
+}
+
+@keyframes eye-move {
+  to {
+    translate: calc(50vw - 50%);
+  }
+}
+
+@keyframes color-changing {
+  from {
+    --iris-color: rgb(145 0 255);
+  }
+
+  to {
+    --iris-color: rgb(255 11 59);
+  }
+}
+
+@keyframes color-changing-2 {
+  from {
+    --iris-color: rgb(255 0 255);
+  }
+
+  49% {
+    --iris-color: rgb(255 0 255);
+  }
+
+  50% {
+    --iris-color: rgb(0 255 255);
+  }
+
+  to {
+    --iris-color: rgb(0 255 255);
+  }
+}
+
+.eye {
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.closed-eye {
+  display: none;
+}
+
+.eye-button {
+  width: 300px;
+  height: 150px;
+  object-fit: contain;
+  position: absolute;
+}
+
+
+.opened-eye .upper-lid{
+  animation: blink-up 0.3s forwards;
+}
+
+.opened-eye .lower-lid {
+  animation: blink-bottom 0.3s forwards;
+}
+
+.opened-eye .pupil {
+  animation: pupil-uping 0.3s forwards;
+}
+
+
+/* Анимация для моргания */
+@keyframes blink-up {
+  0% {
+    d: path("M10 100 Q 250 150, 500 100"); /* Исходное положение */
+  }
+  100% {
+    d: path("M10 100 Q 250 -100, 500 100"); /* Закрытое положение */
+  }
+}
+
+@keyframes blink-bottom {
+  0% {
+    d: path("M10 100 Q 250 150, 500 100"); /* Исходное положение */
+  }
+  100% {
+    d: path("M10 100 Q 250 300, 500 100"); /* Закрытое положение */
+  }
+}
+
+@keyframes pupil-uping {
+  from {
+    r: 0;
+    cy: 124;
+  }
+
+  to {
+    r: 50;
+    cy: 100;
+  }
+}
+
+.eye-container-2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 50%;
+  animation: shake 1s infinite linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  2% {
+    transform: translate(-4px, 4px);
+  }
+  5% {
+    transform: translate(-5px, 5px);
+  }
+  8% {
+    transform: translate(-4px, 4px);
+  }
+  12% {
+    transform: translate(4px, 1px);
+  }
+  15% {
+    transform: translate(5px, 0);
+  }
+  18% {
+    transform: translate(4px, 1px);
+  }
+  22% {
+    transform: translate(-3px, -2px);
+  }
+  25% {
+    transform: translate(-4px, -2.5px);
+  }
+  28% {
+    transform: translate(-3px, -2px);
+  }
+  32% {
+    transform: translate(3px, -1px);
+  }
+  35% {
+    transform: translate(4px, 1px);
+  }
+  38% {
+    transform: translate(4px, 1px);
+  }
+  42% {
+    transform: translate(-3px, -1px);
+  }
+  45% {
+    transform: translate(-4px, -1px);
+  }
+  48% {
+    transform: translate(-4px, 1px);
+  }
+  52% {
+    transform: translate(-4px, 4px);
+  }
+  55% {
+    transform: translate(-5px, 5px);
+  }
+  58% {
+    transform: translate(-4px, 4px);
+  }
+  62% {
+    transform: translate(4px, 1px);
+  }
+  65% {
+    transform: translate(5px, 0);
+  }
+  68% {
+    transform: translate(4px, 1px);
+  }
+  72% {
+    transform: translate(-3px, -2px);
+  }
+  75% {
+    transform: translate(-4px, -2.5px);
+  }
+  78% {
+    transform: translate(-3px, -2px);
+  }
+  82% {
+    transform: translate(3px, -1px);
+  }
+  85% {
+    transform: translate(4px, 1px);
+  }
+  88% {
+    transform: translate(4px, 1px);
+  }
+  92% {
+    transform: translate(-3px, -1px);
+  }
+  95% {
+    transform: translate(-4px, -1px);
+  }
+  98% {
+    transform: translate(-4px, 1px);
+  }
+}
+
+.noviy-glaz {
+  width: 100%;
+}
+
+.eye-core-2 {
+  filter: drop-shadow(0 0 5px black);
+}
+
+.iris-2 {
+  color: var(--iris-color);
+  animation: iris-2-coloring 0.2s linear infinite;
+}
+
+@keyframes iris-2-coloring {
+  0% {
+    --iris-color: red;
+  }
+
+  49% {
+    --iris-color: red;
+  }
+
+  50% {
+    --iris-color: yellow;
+  }
+
+  100% {
+    --iris-color: yellow;
+  }
+}
+
+.zrachok {
+  animation: dvijeniya-zrachka 2s infinite linear;
+}
+
+@keyframes dvijeniya-zrachka {
+  0% {
+    translate: 0;
+  }
+
+  12% {
+    translate: -10% -10%;
+  }
+
+  15% {
+    translate: -10% -10%;
+  }
+
+  18% {
+    translate: -10% -10%;
+  }
+
+  27% {
+    translate: -10% 10%;
+  }
+
+  30% {
+    translate: -10% 10%;
+  }
+
+  33% {
+    translate: -10% 10%;
+  }
+
+  42% {
+    translate: 10% -10%;
+  }
+
+  45% {
+    translate: 10% -10%;
+  }
+
+  48% {
+    translate: 10% -10%;
+  }
+
+  57% {
+    translate: 10% 10%;
+  }
+
+  60% {
+    translate: 10% 10%;
+  }
+
+  63% {
+    translate: 10% 10%;
+  }
+
+  72% {
+    translate: -15% 0;
+  }
+
+  75% {
+    translate: -15% 0;
+  }
+
+  78% {
+    translate: -15% 0;
+  }
+
+  87% {
+    translate: 15% 10%;
+  }
+
+  90% {
+    translate: 15% 10%;
+  }
+
+  93% {
+    translate: 15% 10%;
+  }
+}
+
+.spikes-row {
+  transform-origin: center center;
+  fill: black;
+}
+
+.spikes-first-row {
+  animation: rotating 2s infinite linear;
+  opacity: 0.4;
+}
+
+.spikes-second-row {
+  animation: rotating 1.7s infinite linear reverse;
+  fill: rgb(37, 37, 37);
+}
+
+.spikes-third-row {
+  animation: rotating 1.5s infinite linear;
+
+}
+
+.page.stage2 {
+  background-color: #8B0000;
+  animation: background-coloring 1s linear infinite;
+}
+
+@keyframes background-coloring {
+  100% {
+    background-color: #8B0000;
+  }
+
+  0% {
+    background-color: rgb(128 128 0);
+  }
+}
+
+@keyframes rotating {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+.page.invert.stage2 .eye-core-2 {
+  fill: black;
+}
+
+.page.invert.stage2 .shadow-gradient {
+  stop-color: white;
+}
+
+.page.invert.stage2 .shadow-gradient:first-child {
+  stop-color: white;
+}
+
+.page.invert.stage2 .shadow-gradient:nth-child(2) {
+  stop-color: white;
+  offset: 30%;
+  stop-opacity: 0.4;
+}
+
+.page.invert.stage2 .shadow-gradient:nth-child(3) {
+  stop-color: white;
+  offset: 80%;
+  stop-opacity: 0.7;
+}
+
+.page.invert.stage2 .shadow-gradient:nth-child(4) {
+  stop-color: white;
+  offset: 90%;
+  stop-opacity: 1;
+}
+
+.page.invert.stage2 .pupil-2 {
+  fill: white;
+}
+
+.page.invert.stage2 .blick-2 {
+  fill: black;
+}
+
+.page.invert.stage2 .iris-2 {
+  color: var(--iris-color);
+  animation: iris-2-coloring-2 0.2s linear infinite;
+}
+
+@keyframes iris-2-coloring-2 {
+  0% {
+    --iris-color: rgb(255 0 255);
+  }
+
+  49% {
+    --iris-color: rgb(255 0 255);
+  }
+
+  50% {
+    --iris-color: rgb(0 255 255);
+  }
+
+  100% {
+    --iris-color: rgb(0 255 255);
+  }
+}
+
+.page.invert.stage2 {
+  animation: invert-background-coloring infinite 1s linear;
+  background-color: rgb(10, 209, 209);
+}
+
+@keyframes invert-background-coloring {
+  100% {
+    background-color: rgb(255 0 255);
+  }
+
+  0% {
+    background-color: rgb(0 255 255);
+  }
+}
+
+.page.invert.stage2 .spikes-row {
+  fill: white;
+}
+
+.page.invert.stage2 .spikes-second-row {
+  fill: rgb(195, 195, 195);
+}
